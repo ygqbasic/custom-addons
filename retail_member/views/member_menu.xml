@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<odoo>
+    <!-- Member Center App Menu -->
+    <menuitem id="menu_retail_mc" name="member" />
+    <!-- Action to open the Book list -->
+    <act_window id="action_retail_member"
+        name="Retail Members"
+        res_model="retail.member"
+        view_mode="kanban,tree,form,graph"
+    />
+    <!-- Menu item to open the Book list -->
+    <menuitem id="menu_retail_member_member"
+        name="Members"
+        parent="menu_retail_mc"
+        action="action_retail_member"
+    />
+</odoo>
