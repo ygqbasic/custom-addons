@@ -11,5 +11,6 @@
                 'views/member_menu.xml',
                 'views/member_view.xml',
                 'views/member_list_template.xml',
+                'views/member_account_view.xml',
         ],
 }

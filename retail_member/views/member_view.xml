@@ -32,6 +32,11 @@
                             <field name="city" />
                         </group>
                     </group>
+                    <notebook>
+                        <page string="Third Party Accounts" name="account_lines">
+                            <field name="member_account_ids" />
+                        </page>
+                    </notebook>
 
                 </sheet>
                             <!-- mail mixin fields -->
@@ -95,7 +100,7 @@
                                 <a type="open">
                                     <!-- Content elements and fields go here... -->
                                     
-                                    <img t-att-src="kanban_image('res.partner', 'image_small', record.partner_id.raw_value)" class="oe_kanban_avatar pull-left" width="64" height="64" alt="" />
+                                    <img t-att-src="kanban_image('res.partner', 'image_medium', record.partner_id.raw_value)" class="oe_kanban_avatar pull-left" width="64" height="64" alt="" />
                                     <div style="margin-left:80px">
                                         <strong>
                                             <field name="name" />

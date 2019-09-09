@@ -1,3 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_retail_member_user,RetailMemberUser,model_retail_member,retail_group_user,1,1,1,0
 access_retail_member_manager,RetailMemberManager,model_retail_member,retail_group_manager,1,1,1,1
+access_retail_member_account_user,RetailMemberAccountUser,model_retail_member_account,retail_group_user,1,1,1,0
+access_retail_member_account_manager,RetailMemberAccountUser,model_retail_member_account,retail_group_manager,1,1,1,1

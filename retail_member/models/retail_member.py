@@ -13,3 +13,8 @@ class Member(models.Model):
         delegate=True,
         ondelete='cascade',
         required=True)
+    member_account_ids = fields.One2many(
+    'retail.member.account',
+    'member_id',
+    string='Third Party Accounts',)
+    
