@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="view_form_report" model="ir.ui.view">
+        <field name="name">Report Form</field>
+        <field name="model">lims.report</field>
+        <field name="arch" type="xml">
+            <form string="Member">
+                <header>
+                    <field name="state" invisible="True" />
+                    <!-- 此处添加按钮 -->
+                    <field name="stage_id"
+                        widget="statusbar"
+                        clickable="True"
+                        options="{'fold_field': 'fold'}" />
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only" />
+                        <h2><field name="name"  readonly="1"  /></h2>
+                        <!-- <h3>
+                            <label for="report_number" class="oe_edit_only" />
+                            <field name="report_number" class="oe_inline" />
+                        </h3> -->
+                    </div>
+                    <group name="group_top" string="Delegated Information">
+                        <group name="group_left">
+                            <field name="inspection_type" />
+                            <field name="submitter_id" />
+                            <field name="client_id" />
+                            <field name="sampling_date" />
+                        </group>
+                        <group name="group_right">
+                            <field name="department_id" />
+                            <field name="test_type" />
+                            <field name="inspection_cycle" />
+                            <field name="inspection_due_date" />
+                            <!-- <field name="country_id" />
+                            <field name="state_id" />
+                            <field name="city" /> -->
+                        </group>
+                    </group>
+                    <group name="group_bottom" string="Report Information">
+                        <group name="group_left">
+                            <field name="sample_level" />
+                            <field name="sample_description" />
+                            <field name="sample_model" />
+                            <field name="sample_sku" />
+                        </group>
+                        <group name="group_right">
+                            <field name="sample_quantity" />
+                            <field name="sample_brand" />
+                            <!-- <field name="country_id" />
+                            <field name="state_id" />
+                            <field name="city" /> -->
+                        </group>
+                    </group>
+                    <!-- <notebook>
+                        <page string="Third Party Accounts" name="account_lines">
+                            <field name="member_account_ids" />
+                        </page>
+                    </notebook> -->
+
+                </sheet>
+                            <!-- mail mixin fields -->
+            <div class="oe_chatter">
+                <field name="message_follower_ids" widget="mail_followers" />
+                <field name="activity_ids" widget="mail_activity" />
+                <field name="message_ids" widget="mail_thread" />
+            </div>
+            </form>
+
+        </field>
+    </record>
+
+    <record id="view_tree_report" model="ir.ui.view">
+        <field name="name">Report List</field>
+        <field name="model">lims.report</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" readonly="1" />
+                <field name="test_type" />
+                <field name="submitter_id" />
+                <field name="client_id" />
+                <field name="inspection_cycle" />
+                <field name="sampling_date" />
+                <field name="inspection_due_date" />
+            </tree>
+        </field>
+    </record>
+
+        <record id="view_kanban_report" model="ir.ui.view">
+        <field name="name">Report List</field>
+        <field name="model">lims.report</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_small_column">       
+                <field name="id" />     
+                <field name="submitter_id" />   
+                <field name="client_id" />   
+                <templates>
+
+                    <t t-name="kanban-box">
+                        <!-- Set the Kanban Card color -->
+                        <div>
+                            <div class="o_dropdown_kanban dropdown">
+                                <!-- Top-right drop down menu here... -->
+                                <a class="dropdown-toggle btn"
+                                    data-toggle="dropdown" role="button"
+                                    aria-label="Dropdown menu"
+                                    title="Dropdown menu"
+                                    href="#">
+                                    <span class="fa fa-ellipsis-v" />
+                                </a>
+                                <div class="dropdown-menu" role="menu">
+                                    <!-- Edit and Delete actions, if available: -->
+                                    <t t-if="widget.editable">
+                                        <a role="menuitem" type="edit" class="dropdown-item">Edit</a>
+                                    </t>
+                                    <!-- <t t-if="widget.deletable">
+                                        <a role="menuitem" type="delete" class="dropdown-item">Delete</a>
+                                    </t> -->
+                                    <!-- Color picker option -->
+                                    <ul class="oe_kanban_colorpicker" data-field="color" />
+                                </div>
+                            </div>
+                            <div class="oe_kanban_body">
+                                <a type="open">
+                                    <!-- Content elements and fields go here... -->
+                                    
+                                  
+                                    <div >
+                                        <strong>
+                                            <field name="name"   readonly="1" />
+                                        </strong>
+                                         <t><br /></t>
+                                        <field name="submitter_id" />
+                                        <t><br /></t>
+                                        <field name="client_id" />
+                                    </div>  
+                                </a>
+                            </div>
+                            <div class="oe_kanban_footer">
+                                <div class="oe_kanban_footer_left">
+                                    <!-- Left hand footer... -->
+                                </div>
+                                <div class="oe_kanban_footer_right">
+                                    <!-- Right hand footer... -->
+                                </div>
+                            </div>
+                            <div class="oe_clear" />
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+    
+    <record id="view_search_report" model="ir.ui.view">
+        <field name="name">Report Filters</field>
+        <field name="model">lims.report</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" filter_domain="[('name','ilike',self)]" />
+                <filter name="filter_active"
+                    string="Active"
+                    domain="[('active','=',True)]" />
+               <filter name="filter_inactive"
+                    string="Inactive"
+                    domain="[('active','=',False)]" />
+            </search>
+        </field>
+    </record>
+</odoo>

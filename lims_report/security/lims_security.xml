@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="module_lims_category" model="ir.module.category">
+        <field name="name">LIMS</field>
+    </record>
+    <!-- LIMS User Group -->
+    <record id="lims_group_user" model="res.groups">
+        <field name="name">User</field>
+        <field name="category_id" ref="module_lims_category" />
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]" />
+    </record>
+    <!-- LIMS Manager Group -->
+    <record id="lims_group_manager" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="category_id" ref="module_lims_category" />
+        <field name="implied_ids" eval="[(4, ref('lims_group_user'))]" />
+        <field name="users" eval="[
+                    (4, ref('base.user_root')),
+                    (4, ref('base.user_admin'))
+                ]" />
+    </record>
+    <data noupdate="0">
+        <record id="report_user_rule" model="ir.rule">
+            <field name="name">LIMS User Access</field>
+            <field name="model_id" ref="model_lims_report" />
+            <field name="domain_force">
+                [('active','=',True)]
+            </field>
+            <field name="groups" eval="[(4,ref('lims_group_user'))]" />
+        </record>
+    </data>
+</odoo>

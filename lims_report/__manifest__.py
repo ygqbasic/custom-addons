@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "lims_test_assign",
+    'name': "质检",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+        质检流程包括取号，报告基础信息，样品信息录入，安排测试项目等功能
+        """,
 
     'description': """
-        Long description of module's purpose
+        质检
     """,
 
-    'author': "YFMICRO",
+    'author': "Guoqing Yang",
     'website': "https://www.yf-micro.cn",
 
     # Categories can be used to filter modules in modules listing
@@ -20,11 +20,18 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base', 'mail'],
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/lims_security.xml',
+        'data/ir.sequence.xml',
+        'data/lims_report_stage.xml',
+        'security/ir.model.access.csv',
+        'views/lims_menu.xml',
+        'views/client_view.xml',
+        'views/submitter_view.xml',
+        'views/report_view.xml',
         'views/views.xml',
         'views/templates.xml',
     ],

@@ -2,7 +2,7 @@ from odoo import http
  
 class Members(http.Controller):
  
-    @http.route('/rettail/members', auth='user')
+    @http.route('/retail/members', auth='user')
     def list(self, **kwargs):
         Member = http.request.env['retail.member']
         members = Member.search([])

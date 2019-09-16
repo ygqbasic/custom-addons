@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="view_form_client" model="ir.ui.view">
+        <field name="name">Client Form</field>
+        <field name="model">lims.client</field>
+        <field name="arch" type="xml">
+            <form string="Client">
+                <header>
+                    <!-- 此处添加按钮 -->
+                    
+                </header>
+                <sheet>
+                    <group name="group_top">
+                        <group name="group_left">
+                            <field name="name" />
+                        </group>
+                        <group name="group_right">
+                            <field name="active" />
+                        </group>
+                    </group>
+
+                </sheet>
+            </form>
+
+        </field>
+    </record>
+
+    <record id="view_tree_client" model="ir.ui.view">
+        <field name="name">Client List</field>
+        <field name="model">lims.client</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+    
+    <record id="view_search_client" model="ir.ui.view">
+        <field name="name">Client Filters</field>
+        <field name="model">lims.client</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+                <filter name="filter_active"
+                    string="Active"
+                    domain="[('active','=',True)]" />
+               <filter name="filter_inactive"
+                    string="Inactive"
+                    domain="[('active','=',False)]" />
+            </search>
+        </field>
+    </record>
+</odoo>

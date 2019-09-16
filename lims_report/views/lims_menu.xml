@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<odoo>
+    <!-- Member Center App Menu -->
+    <menuitem id="menu_lims_mc" name="LIMS" 
+    web_icon="lims_report,static/description/icon.png"
+    />
+    <!-- Action to open the Book list -->
+    <act_window id="action_lims_report"
+        name="Report"
+        res_model="lims.report"
+        view_mode="tree,kanban,form,graph"
+    />
+    <!-- Menu item to open the Book list -->
+    <menuitem id="menu_lims_report_report"
+        name="Reports"
+        parent="menu_lims_mc"
+        action="action_lims_report"
+    />
+</odoo>

@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_lims_report_user,LIMSTAUser,model_lims_report,lims_group_user,1,1,1,0
+access_lims_report_manager,LIMSTAManager,model_lims_report,lims_group_manager,1,1,1,1
+access_lims_client_user,LIMSTAUser,model_lims_client,lims_group_user,1,1,1,0
+access_lims_client_manager,LIMSTAManager,model_lims_client,lims_group_manager,1,1,1,1
+access_lims_submitter_user,LIMSTAUser,model_lims_submitter,lims_group_user,1,1,1,0
+access_lims_submitter_manager,LIMSTAManager,model_lims_submitter,lims_group_manager,1,1,1,1
+access_lims_report_stage_user,LIMSTAUser,model_lims_report_stage,lims_group_user,1,1,1,0
+access_lims_report_stage_manager,LIMSTAManager,model_lims_report_stage,lims_group_manager,1,1,1,1
